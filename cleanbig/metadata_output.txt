@@ -1,0 +1,154 @@
+
+============================================================
+📂 File: ./data/2019-Oct.csv
+============================================================
+📏 File size: 5406.01 MB
+⏳ Counting rows (this may take a while)…
+📊 Row count (fast estimate): 42,448,765
+🔍 Detecting delimiter…
+🔎 Detected delimiter: ','
+📥 Reading header…
+✅ Header read.
+
+🧩 Columns:
+  - event_time
+  - event_type
+  - product_id
+  - category_id
+  - category_code
+  - brand
+  - price
+  - user_id
+  - user_session
+📥 Reading first 50,000 rows as sample…
+✅ Sample loaded.
+
+📐 Data types (inferred from sample):
+event_time        object
+event_type        object
+product_id         int64
+category_id        int64
+category_code     object
+brand             object
+price            float64
+user_id            int64
+user_session      object
+dtype: object
+
+📉 Missing value summary (sample):
+event_time           0
+event_type           0
+product_id           0
+category_id          0
+category_code    16098
+brand             7041
+price                0
+user_id              0
+user_session         0
+dtype: int64
+
+🔢 Unique value counts (sample):
+  event_time: 5,425 unique
+  event_type: 3 unique
+  product_id: 13,289 unique
+  category_id: 490 unique
+  category_code: 123 unique
+  brand: 1,226 unique
+  price: 5,985 unique
+  user_id: 10,931 unique
+  user_session: 12,798 unique
+
+👀 Preview (first 10 rows):
+                event_time  ...                          user_session
+0  2019-10-01 00:00:00 UTC  ...  72d76fde-8bb3-4e00-8c23-a032dfed738c
+1  2019-10-01 00:00:00 UTC  ...  9333dfbd-b87a-4708-9857-6336556b0fcc
+2  2019-10-01 00:00:01 UTC  ...  566511c2-e2e3-422b-b695-cf8e6e792ca8
+3  2019-10-01 00:00:01 UTC  ...  7c90fc70-0e80-4590-96f3-13c02c18c713
+4  2019-10-01 00:00:04 UTC  ...  c6bd7419-2748-4c56-95b4-8cec9ff8b80d
+5  2019-10-01 00:00:05 UTC  ...  0d0d91c2-c9c2-4e81-90a5-86594dec0db9
+6  2019-10-01 00:00:08 UTC  ...  4fe811e9-91de-46da-90c3-bbd87ed3a65d
+7  2019-10-01 00:00:08 UTC  ...  6280d577-25c8-4147-99a7-abc6048498d6
+8  2019-10-01 00:00:10 UTC  ...  ac1cd4e5-a3ce-4224-a2d7-ff660a105880
+9  2019-10-01 00:00:11 UTC  ...  406c46ed-90a4-4787-a43b-59a410c1a5fb
+
+[10 rows x 9 columns]
+
+✨ Metadata profiling complete.
+
+
+============================================================
+📂 File: ./data/2019-Nov.csv
+============================================================
+📏 File size: 8589.52 MB
+⏳ Counting rows (this may take a while)…
+📊 Row count (fast estimate): 67,501,980
+🔍 Detecting delimiter…
+🔎 Detected delimiter: ','
+📥 Reading header…
+✅ Header read.
+
+🧩 Columns:
+  - event_time
+  - event_type
+  - product_id
+  - category_id
+  - category_code
+  - brand
+  - price
+  - user_id
+  - user_session
+📥 Reading first 50,000 rows as sample…
+✅ Sample loaded.
+
+📐 Data types (inferred from sample):
+event_time        object
+event_type        object
+product_id         int64
+category_id        int64
+category_code     object
+brand             object
+price            float64
+user_id            int64
+user_session      object
+dtype: object
+
+📉 Missing value summary (sample):
+event_time           0
+event_type           0
+product_id           0
+category_id          0
+category_code    17028
+brand             8099
+price                0
+user_id              0
+user_session         0
+dtype: int64
+
+🔢 Unique value counts (sample):
+  event_time: 9,066 unique
+  event_type: 3 unique
+  product_id: 13,570 unique
+  category_id: 521 unique
+  category_code: 117 unique
+  brand: 1,294 unique
+  price: 6,063 unique
+  user_id: 10,538 unique
+  user_session: 12,437 unique
+
+👀 Preview (first 10 rows):
+                event_time  ...                          user_session
+0  2019-11-01 00:00:00 UTC  ...  4d3b30da-a5e4-49df-b1a8-ba5943f1dd33
+1  2019-11-01 00:00:00 UTC  ...  8e5f4f83-366c-4f70-860e-ca7417414283
+2  2019-11-01 00:00:01 UTC  ...  755422e7-9040-477b-9bd2-6a6e8fd97387
+3  2019-11-01 00:00:01 UTC  ...  3bfb58cd-7892-48cc-8020-2f17e6de6e7f
+4  2019-11-01 00:00:01 UTC  ...  313628f1-68b8-460d-84f6-cec7a8796ef2
+5  2019-11-01 00:00:01 UTC  ...  816a59f3-f5ae-4ccd-9b23-82aa8c23d33c
+6  2019-11-01 00:00:01 UTC  ...  df8184cc-3694-4549-8c8c-6b5171877376
+7  2019-11-01 00:00:02 UTC  ...  5e6ef132-4d7c-4730-8c7f-85aa4082588f
+8  2019-11-01 00:00:02 UTC  ...  0a899268-31eb-46de-898d-09b2da950b24
+9  2019-11-01 00:00:02 UTC  ...  d2d3d2c6-631d-489e-9fb5-06f340b85be0
+
+[10 rows x 9 columns]
+
+✨ Metadata profiling complete.
+

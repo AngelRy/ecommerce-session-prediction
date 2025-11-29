@@ -1,0 +1,11 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/ecom_env/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": ["--rcfile", "${workspaceFolder}/.vscode/activate_venv.sh"]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "bash"
+}
