@@ -1,41 +1,35 @@
 ###########################################
 # PYTHON ENVIRONMENTS
 ###########################################
-# Avoid tracking any virtual environments
-ecvalmo/ecom_env_new/
-ecom_env_new/
-cleanbig/ecom_env_new/
-cleanbig/ecom_env/
-venv/
-env/
 */venv/
 */env/
 *.venv/
+ecvalmo/ecom_env_new/
+cleanbig/ecom_env_new/
+cleanbig/ecom_env/
+ecom_env_new/
 
 ###########################################
-# DATA FILES
+# DATA FILES & ARTIFACTS
 ###########################################
+cleanbig/data/
 *.parquet
 *.csv
-cleanbig/data/
-
-###########################################
-# MODEL ARTIFACTS
-###########################################
 *.pkl
 *.joblib
-*.h5
 
 ###########################################
-# PYTHON CACHE / BUILD
+# PYTHON CACHE / BUILD FILES
 ###########################################
 __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
+build/
+dist/
 
 ###########################################
-# EDITORS / PROJECT SETTINGS
+# EDITOR CONFIG
 ###########################################
 .vscode/
 .idea/
