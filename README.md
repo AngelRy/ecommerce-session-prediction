@@ -1,183 +1,209 @@
-```
-🛒 Ecommerce Session Prediction
-
-Predicting purchase intent from large-scale ecommerce user behavior data
-
-📘 Overview
+# 🛒 Ecommerce Session Prediction
+**Predicting purchase intent from large-scale ecommerce user behavior data**
+----
+## 📘 Overview
 
 This project focuses on predicting whether an ecommerce browsing session will result in a purchase, using large-scale clickstream behavioral data. It covers the entire pipeline:
 
-Data ingestion & preprocessing
+- Data ingestion & preprocessing
 
-Efficient storage and querying under hardware constraints
+- Efficient storage and querying under hardware constraints
 
-Feature engineering
+- Feature engineering
 
-Machine learning modeling
+- Machine learning modeling
 
-Evaluation and insights
+- Evaluation and insights
+___
+The primary goal is to build a reproducible ML workflow capable of handling millions of events on modest/local hardware without requiring distributed systems or cloud compute.
+___
+## 📦 Datasets
 
-The goal is to build a reproducible ML workflow able to handle millions of events without requiring high-end compute resources.
+This project uses public datasets sourced from **Kaggle**, specifically:
 
-📦 Datasets
-
-The project uses public datasets sourced from Kaggle:
-
-1. Ecommerce Behavior Data from Multi-Category Store
-
-Contains:
-
-user behavior logs
-
-event types (view, cart, purchase)
-
-timestamps
-
-device/browser info
-
-product metadata
-
-2. Ecommerce Purchases Dataset
+### 1. Ecommerce Behavior Data from Multi-Category Store
 
 Contains:
 
-purchase events
+- user behavior logs
 
-session-level linking
+- event types (view, cart, purchase)
 
-cart and checkout behaviors
+- timestamps
 
-Both datasets can be found on Kaggle by searching their names.
-(Direct links can be added if desired.)
+- device/browser info
 
-⚙️ Project Motivation & Constraints
+- product metadata
 
-The entire pipeline was developed on modest and outdated hardware, far below ideal for handling large ecommerce datasets.
-This limitation shaped many engineering decisions:
+### 2. Ecommerce Purchases Dataset
 
-🧩 The Constraints
+Contains:
 
-Limited RAM
+- purchase events
 
-Slow disk I/O
+- session-level linkage
 
-No GPU
+- cart and checkout sequences
 
-No ability to run Spark or large distributed systems
 
-🛠️ Workarounds & Engineering Solutions
+Datasets taken from: 
+https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store
+
+---
+
+## ⚙️ Project Motivation & Constraints
+The entire pipeline was built on modest, outdated hardware, which imposed significant design constraints:
+
+🧩 Hardware Limitations
+
+- Limited RAM
+
+- Slow disk I/O
+
+- No GPU
+
+- Cannot run Spark or other distributed engines
+
+🛠️ Engineering Workarounds
+
+To handle millions of events efficiently:
+
 ✔ Parquet Instead of CSV
 
-Used to reduce memory usage and speed up processing due to:
+- Compressed
 
-compression
+- Columnar
 
-columnar access
+- Much faster scanning
 
-faster scanning
+- Greatly reduced memory pressure
 
 ✔ DuckDB Instead of Pandas-Only or Spark
 
-DuckDB was used as the in-process analytical engine because it can:
+DuckDB enables:
 
-execute SQL queries directly on parquet files
+- Running SQL directly on Parquet files
 
-handle large datasets on a laptop
+- Querying data larger than RAM
 
-avoid full dataframe loading into RAM
+- In-memory OLAP-like performance on a laptop
 
-serve as a “poor man’s OLAP engine”
+✔ Chunked / Streaming Processing
 
-✔ Chunked & Streaming Processing
+Used whenever pandas operations were unavoidable.
 
-For steps requiring pandas, chunk-based loading prevented memory overflow.
+✔ Memory-Aware Modeling
 
-✔ Model Training with Memory Awareness
+Feature selection & aggregation were optimized for speed and resource limits.
 
-Feature selection and dimensionality reduction focused on runtime performance.
+These techniques make the repo valuable for anyone working with limited compute power.
 
-This approach makes the repository highly useful for anyone working under similar hardware limitations.
-
+---
 🧠 Machine Learning Approach
+---
 
-The modeling part explores:
+The modeling pipeline includes:
 
-classification models: Logistic Regression, Random Forest, XGBoost
+- Logistic Regression
 
-session-level aggregation
+- Random Forest
 
-event frequency patterns
+- (Optional) XGBoost, depending on resources
 
-time-based behavior
+- Session-level aggregation
 
-Evaluation includes:
+- Behavioral frequency features
 
-ROC-AUC
+- Time-based patterns
 
-precision/recall
+Evaluation metrics:
 
-confusion matrix
+- ROC-AUC
 
-feature contribution insights
+- Precision / Recall
 
-(Consider adding model results if applicable.)
-```
-```
+- F1 Score
+
+- Confusion Matrix
+
+- Feature importance insights
+- ---
 📂 Repository Structure
+---
+```
 ecommerce-session-prediction/
 │
-├── data/                       # Parquet/duckdb intermediate files (ignored)
-├── notebooks/                  # Exploratory analysis and modeling notebooks
-├── src/                        # Data processing & model training scripts
+├── cleanbig/                   # Data ingestion + parquet/dask/duckdb processing
+│   └── data/                   # Parquet datasets (ignored by git)
+│
+├── ecvalmo/
+│   └── scripts/                # Model training script (train_model.py)
+│
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # Project documentation
-└── .gitignore                  # Ignoring datasets, temp files, envs
+└── .gitignore                  # Environment, data, and artifact exclusions
 ```
-🚀 How to Run
+---
+## 🚀 How to Run
+1. Clone the repository
+```
 git clone https://github.com/AngelRy/ecommerce-session-prediction.git
 cd ecommerce-session-prediction
-
-# Create conda environment
-conda create -n ecom_env_new python=3.11 -y
-conda activate ecom_env_new
-
+```
+2. Create and activate a virtual environment
+```
+python3 -m venv ecom_env_new
+source ecom_env_new/bin/activate     # Linux/macOS
+# OR
+ecom_env_new\Scripts\activate        # Windows
+```
+3. Install dependencies
+```
 pip install -r requirements.txt
-
-# Start exploration or run scripts
+```
+4. Start exploration or run scripts
 ```
 jupyter lab
 
-🧰 Tech Stack
+```
+---
+## 🧰 Tech Stack
 
-Python 3.11
+- Python 3.11
 
-DuckDB (core analytical engine)
+- DuckDB — in-process analytical engine
 
-Pandas (chunked processing only)
+- Pandas (chunked/streaming usage)
 
-NumPy
+- NumPy
 
-Scikit-learn
+- Scikit-learn
 
-Parquet (PyArrow backend)
+- Parquet (PyArrow backend)
 
-Matplotlib / Seaborn for visualizations
+- Matplotlib / Seaborn
+----
 
-🏗️ Key Strength: Working with Limited Hardware
+## 🏗️ Key Strength: Working With Limited Hardware
 
-This project demonstrates how to build large-scale ML pipelines on everyday consumer hardware using smart data-engineering practices.
+This project highlights practical strategies for building scalable ML pipelines without cloud resources:
 
-It is a practical, real-world example for:
+parquet for fast storage
+
+duckdb for analytical queries
+
+dataframe chunking
+
+lightweight modeling
+
+memory-efficient feature engineering
+
+Ideal for:
 
 students
 
-laptop-only data scientists
+learners with standard laptops
 
-Kaggle competitors
+Kaggle participants
 
-learners without access to cloud compute
-
-📜 License
-
-MIT License (or whatever you will choose).
-```
+anyone without access to powerful compute
