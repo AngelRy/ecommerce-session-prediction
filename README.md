@@ -207,3 +207,7 @@ learners with standard laptops
 Kaggle participants
 
 anyone without access to powerful compute
+
+## 📊 Example Model Output
+
+![Model Results](assets/ecomout.png)
